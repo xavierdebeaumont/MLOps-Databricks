@@ -48,7 +48,7 @@ jobs:
         with:
           databricks-host: ${{ vars.DATABRICKS_HOST }}
           local-notebook-path: core/notebooks/train_model.py
-          existing-cluster-id: "0914-132512-t0l022jl"
+          existing-cluster-id: "0914-133407-vdbyepb2"
           access-control-list-json: >
             [
               {
