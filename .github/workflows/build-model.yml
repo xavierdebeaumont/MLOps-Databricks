@@ -48,7 +48,7 @@ jobs:
         with:
           databricks-host: ${{ vars.DATABRICKS_HOST }}
           local-notebook-path: core/notebooks/train_model.py
-          existing-cluster-id: "Goro Majima's Cluster"
+          existing-cluster-id: "0914-122441-gjzyr4je"
           access-control-list-json: >
             [
               {
