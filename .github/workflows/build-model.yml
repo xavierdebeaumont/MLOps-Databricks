@@ -48,12 +48,7 @@ jobs:
         with:
           databricks-host: ${{ vars.DATABRICKS_HOST }}
           local-notebook-path: core/notebooks/train_model.py
-          new-cluster-json: >
-            {
-              "num_workers": 1,
-              "spark_version": "12.2.x-cpu-ml-scala2.12",
-              "node_type_id": "Standard_DS3_v2"
-            }
+          existing-cluster-id: "Goro Majima's Cluster"
           access-control-list-json: >
             [
               {
