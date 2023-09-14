@@ -14,23 +14,29 @@ provider "azurerm" {
 }
 
 # Create an Azure Resource Group
-resource "azurerm_resource_group" "ressource_group" {
-  name     = "Databricks-Serving-Endpoint-Test"
+resource "azurerm_resource_group" "ressource_group_dev" {
+  name     = "Databricks-Serving-Endpoint-Dev"
+  location = "West Europe"
+}
+
+# Create an Azure Resource Group
+resource "azurerm_resource_group" "ressource_group_prod" {
+  name     = "Databricks-Serving-Endpoint-Prod"
   location = "West Europe"
 }
 
 # Create a Databricks Workspace
 resource "azurerm_databricks_workspace" "databricks_workspace_dev" {
-  name                = "Databricks-Serving-Endpoint-Dev"
-  resource_group_name = azurerm_resource_group.ressource_group.name
-  location            = azurerm_resource_group.ressource_group.location
+  name                = "Databricks-Dev"
+  resource_group_name = azurerm_resource_group.ressource_group_dev.name
+  location            = azurerm_resource_group.ressource_group_dev.location
   sku                 = "standard"
 }
 
 # Create a Databricks Workspace
 resource "azurerm_databricks_workspace" "databricks_workspace_prod" {
-  name                = "Databricks-Serving-Endpoint-Prod"
-  resource_group_name = azurerm_resource_group.ressource_group.name
-  location            = azurerm_resource_group.ressource_group.location
+  name                = "Databricks-Prod"
+  resource_group_name = azurerm_resource_group.ressource_group_prod.name
+  location            = azurerm_resource_group.ressource_group_prod.location
   sku                 = "standard"
 }
